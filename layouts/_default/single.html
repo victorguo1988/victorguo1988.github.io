@@ -1,0 +1,12 @@
+{{ define "main" }}
+  <article class="post-single">
+    <p><a class="back-link" href="{{ "posts/" | relLangURL }}">← 返回文章列表</a></p>
+    <header>
+      <h1>{{ .Title }}</h1>
+      <p class="post-meta">{{ .Date.Format "2006-01-02" }}</p>
+    </header>
+    <div class="prose">
+      {{ .Content }}
+    </div>
+  </article>
+{{ end }}
