@@ -1,0 +1,29 @@
+{{ define "main" }}
+  <section class="page-intro">
+    <h1>{{ .Title }}</h1>
+    {{ with .Content }}
+      <div class="prose">{{ . }}</div>
+    {{ end }}
+  </section>
+
+  <section class="post-list" aria-label="文章列表">
+    {{ $pages := .Pages.ByDate.Reverse }}
+    {{ if .IsHome }}
+      {{ $pages = site.RegularPages.ByDate.Reverse }}
+    {{ end }}
+
+    {{ range $pages }}
+      <article class="post-card">
+        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+        <p class="post-meta">{{ .Date.Format "2006-01-02" }}</p>
+        {{ with .Description }}
+          <p>{{ . }}</p>
+        {{ else }}
+          <p>{{ .Summary }}</p>
+        {{ end }}
+      </article>
+    {{ else }}
+      <p>还没有文章，去 `content/posts/` 新建一篇吧。</p>
+    {{ end }}
+  </section>
+{{ end }}
