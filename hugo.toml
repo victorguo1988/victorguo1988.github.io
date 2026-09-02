@@ -1,0 +1,34 @@
+baseURL = 'https://victorguo1988.github.io/'
+languageCode = 'zh-cn'
+defaultContentLanguage = 'zh-cn'
+title = 'test2'
+hasCJKLanguage = true
+enableRobotsTXT = true
+disableKinds = ['taxonomy', 'term']
+summaryLength = 36
+
+[pagination]
+  pagerSize = 10
+
+[params]
+  description = '一个部署在 GitHub Pages 上的 Hugo 静态博客'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = false
+
+[outputs]
+  home = ['HTML', 'RSS']
+
+[[menu.main]]
+  identifier = 'home'
+  name = '首页'
+  url = ''
+  weight = 10
+
+[[menu.main]]
+  identifier = 'posts'
+  name = '文章'
+  url = 'posts/'
+  weight = 20
